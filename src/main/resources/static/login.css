@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap');
+
+/* ===============================
+   共通設定
+================================= */
+
+:root {
+    --cream: #FFFBF2;
+    --white: #FFFFFF;
+    --card-border: #E3DCC8;
+
+    --shift-blue-dark: #2C6690;
+    --shift-blue-btn: #3E7DA6;
+
+    --ink: #2C3A45;
+    --ink-soft: #5B6B75;
+
+    --danger: #D9534F;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    background-color: var(--cream);
+    color: var(--ink);
+    min-height: 100vh;
+}
+
+/* ===============================
+   ログイン画面全体
+================================= */
+
+.login-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ===============================
+   カード
+================================= */
+
+.card {
+    background: var(--white);
+    border: 3px solid var(--card-border);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 6px 0 var(--card-border);
+}
+
+.login-card {
+    width: 100%;
+    max-width: 430px;
+}
+
+/* ===============================
+   タイトル
+================================= */
+
+.login-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login-logo-emoji {
+    display: block;
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.login-title {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.login-subtitle {
+    color: var(--ink-soft);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* ===============================
+   エラーメッセージ
+================================= */
+
+.login-error-box {
+    background: #FDECEC;
+    color: var(--danger);
+    border: 2px solid var(--danger);
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* ===============================
+   入力フォーム
+================================= */
+
+.form-row-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label-txt {
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.standard-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid var(--card-border);
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+    color: var(--ink);
+}
+
+.standard-input:focus {
+    outline: none;
+    border-color: var(--shift-blue-dark);
+}
+
+/* ===============================
+   パスワード
+================================= */
+
+.password-input-wrapper {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.password-input-wrapper .standard-input {
+    flex: 1;
+}
+
+.btn-toggle-password {
+    width: 45px;
+    height: 45px;
+    border: 2px solid var(--card-border);
+    border-radius: 8px;
+    background: var(--white);
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.btn-toggle-password:hover {
+    background: #f5f5f5;
+}
+
+/* ===============================
+   チェックボックス
+================================= */
+
+.login-options {
+    margin-top: 15px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.checkbox-label input {
+    width: auto;
+}
+
+/* ===============================
+   ボタン
+================================= */
+
+.btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 800;
+    transition: 0.15s;
+}
+
+.btn:hover {
+    opacity: 0.95;
+}
+
+.btn:active {
+    transform: translateY(2px);
+}
+
+.btn-blue {
+    background: var(--shift-blue-btn);
+    color: var(--white);
+    border-bottom: 4px solid #24587A;
+}
+
+/* ===============================
+   フッター
+================================= */
+
+.login-footer-links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.login-link {
+    color: var(--shift-blue-dark);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+
+/* ===============================
+   スマホ対応
+================================= */
+
+@media (max-width: 600px) {
+
+    .login-card {
+        padding: 24px;
+    }
+
+    .login-title {
+        font-size: 24px;
+    }
+
+    .btn {
+        font-size: 16px;
+    }
+}

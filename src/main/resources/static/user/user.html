@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タスク管理システム - スタッフ画面</title>
+    <link rel="stylesheet" href="user.css">
+    <script src="user.js" defer></script>
+</head>
+<body>
+
+    <div id="app">
+        
+        <div id="pin-screen" class="pin-screen-container">
+            <div class="card pin-card">
+                <h2 class="pin-title">🔒 PINコードを入力（スタッフ用）</h2>
+                <p class="pin-subtitle">キーボードで4桁の数字を入力してください</p>
+                
+                <input type="password" id="hidden-pin-input" maxlength="4" inputmode="numeric" oninput="handlePinInput(event)">
+
+                <div class="pin-display">
+                    <div class="pin-box-slot active-focus" id="slot-0"></div>
+                    <div class="pin-box-slot" id="slot-1"></div>
+                    <div class="pin-box-slot" id="slot-2"></div>
+                    <div class="pin-box-slot" id="slot-3"></div>
+                </div>
+                <p style="font-size:12px; color:var(--ink-soft); font-weight:800; margin-top: 25px;">（スタッフテストPIN：佐藤 5678 / 鈴木 9012）</p>
+            </div>
+        </div>
+
+        <div id="main-screen" style="display: none;">
+            <header>
+                <div class="header-left"><div class="datetime-box">📝 タスク管理センター</div></div>
+                <div class="easy-settings">
+                    <div class="current-user-trigger" onclick="logOut()">
+                        <div id="current-user-avatar" class="user-avatar-circle">佐</div>
+                        <span id="current-user-name" class="user-name-txt">佐藤さん</span>
+                    </div>
+                </div>
+            </header>
+
+            <div style="display: flex; flex-direction: column; gap: 25px;">
+                <section class="card">
+                    <h2 class="section-title" style="color: var(--shift-blue-dark);">⏳ やること一覧（未達成）</h2>
+                    <div id="todo-list"></div>
+                </section>
+                <section class="card">
+                    <h2 class="section-title" style="color: var(--pink-dark);">✅ 終了したタスク</h2>
+                    <div id="done-list"></div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,528 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap');
+
+
+/* =========================
+   Color Variables
+========================= */
+:root {
+    --cream: #FFFBF2;
+    --white: #FFF;
+
+    --card-border: #E3DCC8;
+
+    --header-yellow: #EAF0BE;
+
+    --shift-blue: #CFE4F5;
+    --shift-blue-dark: #2C6690;
+    --shift-blue-btn: #3E7DA6;
+
+    --pink-dark: #9A3C60;
+
+    --ink: #2C3A45;
+    --ink-soft: #5B6B75;
+
+    --danger: #D9534F;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+
+
+/* =========================
+   Reset / Base
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    padding: 20px;
+}
+
+
+.container,
+#app {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* =========================
+   Header
+========================= */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: var(--white);
+    border: 3px solid var(--card-border);
+    border-radius: 24px;
+
+    padding: 15px 20px;
+    margin-bottom: 20px;
+
+    box-shadow: 0 4px 0 var(--card-border);
+}
+
+/* =========================
+   Description Text
+========================= */
+.description {
+    text-align: center;
+
+    margin: 20px 0;
+
+    color: var(--ink-soft);
+
+    font-size: 17px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.08em;
+
+    line-height: 1.8;
+}
+
+
+/* =========================
+   Card Layout
+========================= */
+.card {
+    background: var(--white);
+
+    border: 3px solid var(--card-border);
+    border-radius: 20px;
+
+    padding: 24px;
+
+    box-shadow: 0 6px 0 var(--card-border);
+}
+
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+
+@media (max-width: 768px) {
+    .grid-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.section-title {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+
+.form-section,
+.list-section {
+    margin-top: 30px;
+}
+
+
+/* =========================
+   Form
+========================= */
+.input-group,
+.form-row-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    margin-bottom: 15px;
+}
+
+
+label,
+.form-label-txt {
+    font-weight: 700;
+}
+
+
+input,
+textarea,
+select,
+.standard-input {
+    width: 100%;
+
+    padding: 10px;
+
+    border: 2px solid var(--card-border);
+    border-radius: 8px;
+
+    font-family: inherit;
+}
+
+
+/* =========================
+   Button
+========================= */
+button,
+.btn-blue {
+    background: var(--shift-blue-btn);
+
+    color: white;
+
+    border: none;
+    border-radius: 10px;
+
+    padding: 12px 18px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+button:hover,
+.btn-blue:hover {
+    opacity: 0.9;
+}
+
+
+.solve-button {
+    width: 100%;
+}
+
+
+/* =========================
+   Table
+========================= */
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-top: 15px;
+}
+
+
+th,
+td {
+    border: 1px solid #ddd;
+
+    padding: 10px;
+
+    text-align: center;
+}
+
+
+th {
+    background: var(--shift-blue);
+}
+
+
+/* =========================
+   Menu
+========================= */
+.menu {
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+
+}
+
+
+.menu-button {
+
+    width:200px;
+
+    height:140px;
+
+    background:white;
+
+    border:3px solid var(--card-border);
+
+    border-radius:20px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+
+    color:var(--ink);
+
+    text-decoration:none;
+
+    font-size:22px;
+
+    font-weight:800;
+
+
+    box-shadow:0 6px 0 var(--card-border);
+
+    transition:.2s;
+
+}
+
+
+/* =========================
+   PIN Screen
+========================= */
+.pin-screen-container {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    min-height: 80vh;
+}
+
+
+.pin-card {
+    position: relative;
+
+    max-width: 380px;
+
+    width: 100%;
+
+    text-align: center;
+}
+
+
+#hidden-pin-input {
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0;
+}
+
+
+.pin-display {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 16px;
+
+    margin-top: 20px;
+}
+
+
+.pin-box-slot {
+    width: 55px;
+    height: 65px;
+
+    border: 3px solid var(--card-border);
+
+    border-radius: 16px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: var(--white);
+}
+
+
+.active-focus {
+    border-color: var(--shift-blue-dark);
+}
+
+
+/* =========================
+   User Menu
+========================= */
+.current-user-trigger {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 6px 16px;
+
+    border: 2px solid var(--card-border);
+
+    border-radius: 30px;
+
+    cursor: pointer;
+}
+
+
+.user-avatar-circle {
+    width: 32px;
+    height: 32px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: var(--shift-blue-dark);
+
+    color: white;
+
+    font-weight: 800;
+}
+
+
+/* =========================
+   Task List
+========================= */
+.task-item-box {
+    background: #FFFDF9;
+
+    border: 2px solid var(--card-border);
+
+    border-radius: 16px;
+
+    padding: 15px;
+
+    margin-bottom: 15px;
+}
+
+
+.task-item-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+.task-item-title {
+    font-weight: 800;
+}
+
+
+.task-item-detail {
+    margin-top: 10px;
+
+    padding: 10px;
+
+    border-left: 4px solid var(--card-border);
+
+    background: #FAF6ED;
+}
+
+
+#done-list .task-item-box {
+    opacity: 0.7;
+}
+
+
+/* =========================
+   Shift Weekly Setting
+========================= */
+.weekly-rows-container {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+
+.day-row {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 15px;
+
+    border: 2px solid var(--card-border);
+
+    border-radius: 12px;
+
+    background: #FFFDF9;
+}
+
+
+.day-badge {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+
+    font-weight: 800;
+
+    background: var(--ink-soft);
+}
+
+
+.day-badge.sat {
+    background: var(--shift-blue-dark);
+}
+
+
+.day-badge.sun {
+    background: var(--danger);
+}
+
+
+.btn-day-off {
+    margin-left: auto;
+
+    background: var(--danger);
+
+    color: white;
+
+    border: none;
+
+    border-radius: 8px;
+
+    padding: 8px 16px;
+}
+
+
+.btn-day-off.revert {
+    background: var(--shift-blue-btn);
+}
+
+
+/* =========================
+   Helper Text
+========================= */
+.hint {
+    display: block;
+
+    margin-top: 10px;
+
+    color: var(--ink-soft);
+}
+
+input[type="checkbox"] {
+    width: auto;
+    padding: 0;
+    margin: 0;
+}

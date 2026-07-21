@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スタッフ用 - ログイン画面</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <div id="app" class="login-page-container">
+        
+        <section class="card login-card">
+            <div class="login-header">
+                <span class="login-logo-emoji">🔑</span>
+                <h2 class="login-title">スタッフ ログイン</h2>
+                <p class="login-subtitle">メールアドレスとパスワードを入力してください</p>
+            </div>
+
+            <div id="login-error-msg" class="login-error-box" style="display: none;">
+                ⚠️ メールアドレスかパスワードが間違っています
+            </div>
+
+            <form id="login-form" onsubmit="handleLogin(event)">
+                
+                <div class="form-row-group">
+                    <label class="form-label-txt" for="login-email">メールアドレス</label>
+                    <input type="email" id="login-email" class="standard-input" placeholder="example@mail.com" required autocomplete="email">
+                </div>
+
+                <div class="form-row-group" style="margin-top: 15px;">
+                    <label class="form-label-txt" for="login-password">パスワード</label>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="login-password" class="standard-input" placeholder="••••••••" required autocomplete="current-password">
+                        <button type="button" class="btn-toggle-password" onclick="togglePasswordVisibility()">👁️</button>
+                    </div>
+                </div>
+
+                <div class="login-options" style="margin-top: 15px;">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="remember-me"> ログイン状態を保存する
+                    </label>
+                </div>
+
+                <div style="margin-top: 25px;">
+                    <button type="submit" class="btn btn-blue" style="max-width: 100%; margin-bottom: 0;">
+                        🔐 ログインする
+                    </button>
+                </div>
+
+            </form>
+
+            <div class="login-footer-links">
+                <a href="#" class="login-link" onclick="alert('管理者にお問い合わせください')">パスワードを忘れた場合</a>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

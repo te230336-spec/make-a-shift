@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スタッフ用 - 1週間シフト希望提出</title>
+    <link rel="stylesheet" href="user.css"> <!--[cite: 3] -->
+</head>
+<body>
+
+    <div id="app"> <!--[cite: 3] -->
+
+        <a href="index-user.html">← ホームへ戻る</a> <!--[cite: 3] -->
+        <br><br> <!--[cite: 3] -->
+        <header> <!--[cite: 3] -->
+            <div class="header-left"> <!--[cite: 3] -->
+                <div class="datetime-box"> <!--[cite: 3] -->
+                    <span>📅 1週間分のシフト希望提出</span> <!--[cite: 3] -->
+                </div>
+            </div>
+            
+            <div class="easy-settings"> <!--[cite: 3] -->
+                <span id="login-user-display" style="font-weight: 800; background: var(--white); padding: 5px 12px; border-radius: 20px; border: 2px solid var(--card-border);">👤 田中さん 勤務中</span> <!--[cite: 3] -->
+            </div>
+        </header> <!--[cite: 3] -->
+
+        <main class="grid-layout" style="grid-template-columns: 1fr;"> <!--[cite: 3] -->
+            
+            <section class="card"> <!--[cite: 3] -->
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;"> <!--[cite: 3] -->
+                    <h2 class="section-title title-blue" style="margin: 0;">📋 シフト一括入力（7日間）</h2> <!--[cite: 3] -->
+                    <div> <!--[cite: 3] -->
+                        <span style="font-weight: 700; font-size: 14px; color: var(--ink-soft);">対象週：</span> <!--[cite: 3] -->
+                        <input type="week" id="target-week" class="standard-input" value="2026-W28" style="width: auto; padding: 6px 10px;"> <!--[cite: 3] -->
+                    </div>
+                </div>
+                
+                <form id="weekly-shift-form" onsubmit="submitWeeklyShift(event)"> <!--[cite: 3] -->
+                    
+                    <div class="weekly-rows-container"> <!--[cite: 3] -->
+                        
+                        <!-- 月曜日 -->
+                        <div class="day-row" id="row-mon"> <!--[cite: 3] -->
+                            <div class="day-badge mon">月</div> <!--[cite: 3] -->
+                            <div class="time-inputs"> <!--[cite: 3] -->
+                                <input type="time" class="standard-input start-t" value="09:00"> <!--[cite: 3] -->
+                                <span class="range-split">〜</span> <!--[cite: 3] -->
+                                <input type="time" class="standard-input end-t" value="17:00"> <!--[cite: 3] -->
+                            </div>
+                            <input type="text" class="standard-input row-memo" placeholder="備考（遅出など）"> <!--[cite: 3] -->
+                            <!-- ★変更：this を渡す -->
+                            <button type="button" class="btn-day-off" onclick="toggleDayOff('mon', this)">✕ 休みにする</button>
+                        </div>
+
+                       
+                        <!-- 水曜日 -->
+                        <div class="day-row" id="row-wed"> <!--[cite: 3] -->
+                            <div class="day-badge wed">水</div> <!--[cite: 3] -->
+                            <div class="time-inputs"> <!--[cite: 3] -->
+                                <input type="time" class="standard-input start-t" value="09:00"> <!--[cite: 3] -->
+                                <span class="range-split">〜</span> <!--[cite: 3] -->
+                                <input type="time" class="standard-input end-t" value="17:00"> <!--[cite: 3] -->
+                            </div>
+                            <input type="text" class="standard-input row-memo" placeholder="備考"> <!--[cite: 3] -->
+                            <button type="button" class="btn-day-off" onclick="toggleDayOff('wed', this)">✕ 休みにする</button>
+                        </div>
+
+                        <!-- 木曜日 -->
+                        <div class="day-row" id="row-thu"> <!--[cite: 3] -->
+                            <div class="day-badge thu">木</div> <!--[cite: 3] -->
+                            <div class="time-inputs"> <!--[cite: 3] -->
+                                <input type="time" class="standard-input start-t" value="09:00"> <!--[cite: 3] -->
+                                <span class="range-split">〜</span> <!--[cite: 3] -->
+                                <input type="time" class="standard-input end-t" value="17:00"> <!--[cite: 3] -->
+                            </div>
+                            <input type="text" class="standard-input row-memo" placeholder="備考"> <!--[cite: 3] -->
+                            <button type="button" class="btn-day-off" onclick="toggleDayOff('thu', this)">✕ 休みにする</button>
+                        </div>
+
+                        <!-- 金曜日 -->
+                        <div class="day-row" id="row-fri"> <!--[cite: 3] -->
+                            <div class="day-badge fri">金</div> <!--[cite: 3] -->
+                            <div class="time-inputs"> <!--[cite: 3] -->
+                                <input type="time" class="standard-input start-t" value="09:00"> <!--[cite: 3] -->
+                                <span class="range-split">〜</span> <!--[cite: 3] -->
+                                <input type="time" class="standard-input end-t" value="17:00"> <!--[cite: 3] -->
+                            </div>
+                            <input type="text" class="standard-input row-memo" placeholder="備考"> <!--[cite: 3] -->
+                            <button type="button" class="btn-day-off" onclick="toggleDayOff('fri', this)">✕ 休みにする</button>
+                        </div>
+
+                        <!-- 土曜日 -->
+                        <div class="day-row" id="row-sat"> <!--[cite: 3] -->
+                            <div class="day-badge sat">土</div> <!--[cite: 3] -->
+                            <div class="time-inputs"> <!--[cite: 3] -->
+                                <input type="time" class="standard-input start-t" value="09:00"> <!--[cite: 3] -->
+                                <span class="range-split">〜</span> <!--[cite: 3] -->
+                                <input type="time" class="standard-input end-t" value="17:00"> <!--[cite: 3] -->
+                            </div>
+                            <input type="text" class="standard-input row-memo" placeholder="備考"> <!--[cite: 3] -->
+                            <button type="button" class="btn-day-off" onclick="toggleDayOff('sat', this)">✕ 休みにする</button>
+                        </div>
+
+                        <!-- 日曜日 -->
+                        <div class="day-row" id="row-sun"> <!--[cite: 3] -->
+                            <div class="day-badge sun">日</div> <!--[cite: 3] -->
+                            <div class="time-inputs"> <!--[cite: 3] -->
+                                <input type="time" class="standard-input start-t" value="09:00"> <!--[cite: 3] -->
+                                <span class="range-split">〜</span> <!--[cite: 3] -->
+                                <input type="time" class="standard-input end-t" value="17:00"> <!--[cite: 3] -->
+                            </div>
+                            <input type="text" class="standard-input row-memo" placeholder="備考"> <!--[cite: 3] -->
+                            <button type="button" class="btn-day-off" onclick="toggleDayOff('sun', this)">✕ 休みにする</button>
+                        </div>
+
+                    </div>
+
+                    <div style="margin-top: 25px; text-align: right;"> <!--[cite: 3] -->
+                        <button type="submit" class="btn btn-blue" style="width: auto; padding: 15px 40px; display: inline-block;"> <!--[cite: 3] -->
+                            🚀 1週間分の希望をまとめて送信する <!--[cite: 3] -->
+                        </button> <!--[cite: 3] -->
+                    </div> <!--[cite: 3] -->
+
+                </form> <!--[cite: 3] -->
+            </section> <!--[cite: 3] -->
+            
+        </main> <!--[cite: 3] -->
+
+    </div> <!--[cite: 3] -->
+
+    <script src="shift-request.js"></script> <!--[cite: 3] -->
+</body> <!--[cite: 3] -->
+</html> <!--[cite: 3] -->

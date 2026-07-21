@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>シフト管理</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <a href="index-admin.html">← ホームへ戻る</a>
+
+        <h1>シフト管理</h1>
+
+        <!-- 勤務枠登録 -->
+        <div class="form-section">
+            <h2>勤務枠の登録</h2>
+
+            <form id="slotForm">
+
+                <div class="input-group">
+                    <label>日付:</label>
+                    <input type="date" id="slotDate" required>
+                </div>
+
+                <div class="input-group">
+                    <label>開始時刻:</label>
+                    <input type="time" id="slotStart" required>
+                </div>
+
+                <div class="input-group">
+                    <label>終了時刻:</label>
+                    <input type="time" id="slotEnd" required>
+                </div>
+
+                <div class="input-group">
+                    <label>必要人数:</label>
+                    <input type="number" id="slotRequiredStaff" min="1" value="1" required>
+                </div>
+
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" id="slotRequiresLeader">
+                        リーダー（店長・ベテラン）必須
+                    </label>
+                </div>
+
+                <button type="submit">勤務枠を登録する</button>
+
+            </form>
+        </div>
+
+        <!-- 勤務枠一覧 -->
+        <div class="list-section">
+
+            <h2>登録済み勤務枠一覧</h2>
+
+            <table id="slotTable">
+
+                <thead>
+                    <tr>
+                        <th>日付</th>
+                        <th>時間</th>
+                        <th>必要人数</th>
+                        <th>リーダー必須</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+
+                <tbody id="slotTableBody">
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <!-- シフト自動作成 -->
+        <div class="list-section">
+
+            <h2>シフト自動作成</h2>
+
+            <button id="solveButton" class="solve-button">
+                シフトを自動作成する
+            </button>
+
+            <small class="hint">
+                登録済みの勤務枠・スタッフをもとにAIが自動でシフトを作成します。
+            </small>
+
+            <div id="shiftResultArea"></div>
+
+        </div>
+
+    </div>
+
+    <script src="shift.js"></script>
+
+</body>
+</html>
